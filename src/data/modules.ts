@@ -95,10 +95,7 @@ export const AVAILABLE_MODULES: ModuleDefinition[] = [
         outputs: ['id', 'name'],
         variables: {
             name: 'my-vnet',
-            address_space: '["10.0.0.0/16"]', // Use string representation of list for now, as variables are string|number|boolean in interface. Or user inputs string "{...}"?
-            // Wait, the interface says `Record<string, string | number | boolean>`.
-            // My hclGenerator handles string starting with [ as list.
-            // So I should use '["10.0.0.0/16"]'.
+            address_space: '["10.0.0.0/16"]',
             resource_group_name: '',
             location: 'East US'
         }
@@ -143,6 +140,20 @@ export const AVAILABLE_MODULES: ModuleDefinition[] = [
             storage_account_id: '',
             error_404_document: '404.html',
             index_document: 'index.html'
+        }
+    },
+    // Output block
+    {
+        type: 'output',
+        label: 'Output',
+        provider: 'local',
+        category: 'local',
+        inputs: ['value'],
+        outputs: [],
+        variables: {
+            description: '',
+            value: '',
+            sensitive: false
         }
     }
 ];

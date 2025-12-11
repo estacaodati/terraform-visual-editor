@@ -8,13 +8,12 @@ export const LocalModuleImporter: React.FC = () => {
 
     const handleImport = async () => {
         try {
-            // @ts-ignore - window.showDirectoryPicker is not yet in all TS definitions
+            // @ts-expect-error - window.showDirectoryPicker is not yet in all TS definitions
             const dirHandle = await window.showDirectoryPicker();
 
             const files: File[] = [];
 
             // Iterate through the directory
-            // @ts-ignore
             for await (const entry of dirHandle.values()) {
                 if (entry.kind === 'file' && entry.name.endsWith('.tf')) {
                     const file = await entry.getFile();

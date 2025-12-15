@@ -15,6 +15,14 @@ const iconMap = {
 
 const ModuleNode = ({ data, selected }: NodeProps<ModuleNodeData>) => {
     const Icon = iconMap[data.category] || Box;
+    
+    // Get the block name (resource name) from variables
+    const blockName = data.variables.__block_label__ as string;
+    
+    // Create the display text: "AWS VPC (batatinha)" or just "AWS VPC" if no block name
+    const displayText = blockName && blockName.trim() !== '' 
+        ? `${data.label} (${blockName})` 
+        : data.label;
 
     return (
         <div
@@ -26,7 +34,9 @@ const ModuleNode = ({ data, selected }: NodeProps<ModuleNodeData>) => {
             {/* Header */}
             <div className="flex items-center gap-2 border-b border-slate-100 bg-slate-50 px-4 py-2 rounded-t-lg">
                 <Icon className="h-4 w-4 text-slate-500" />
-                <span className="font-semibold text-slate-700 text-sm">{data.label}</span>
+                <span className="font-semibold text-slate-700 text-sm" title={displayText}>
+                    {displayText}
+                </span>
             </div>
 
             {/* Body */}

@@ -9,3 +9,22 @@ body,
   overflow: hidden;
   /* Prevent scrolling on the body, let the app handle it */
 }
+
+/* Remove ReactFlow node borders */
+.react-flow__node-default,
+.react-flow__node-input,
+.react-flow__node-output,
+.react-flow__node-group {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Remove ReactFlow node hover borders */
+.react-flow__node-default.selectable:hover,
+.react-flow__node-input.selectable:hover,
+.react-flow__node-output.selectable:hover,
+.react-flow__node-group.selectable:hover {
+  border: none !important;
+  box-shadow: none !important;
+}

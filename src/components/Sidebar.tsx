@@ -1,14 +1,14 @@
 import React from 'react';
-import { Box, Database, Server, Globe, HardDrive, GripVertical, Folder, Hexagon } from 'lucide-react';
+import { Box, Database, Server, Globe, HardDrive, GripVertical, ArrowRight, Hexagon } from 'lucide-react';
 import { useEditorStore } from '../store/editorStore';
-import { LocalModuleImporter } from './LocalModuleImporter';
+import { LocalModuleImporter } from '../components/LocalModuleImporter';
 
 const iconMap = {
     compute: Server,
     network: Globe,
     storage: HardDrive,
     database: Database,
-    local: Folder,
+    local: ArrowRight,
 };
 
 export const Sidebar = () => {
